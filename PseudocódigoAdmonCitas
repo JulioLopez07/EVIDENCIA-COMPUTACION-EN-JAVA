@@ -1,0 +1,85 @@
+Algoritmo AdmonCita
+	ID_UsuarioBD <- 'Admin'
+	ContraseñaBD <- 'Admin1234'
+	Repetir
+		Escribir '---Inicio de sesión---'
+		Escribir 'ID del usuario: '
+		Leer ID_Usuario
+		Escribir 'Contraseña: '
+		Leer Contraseña
+	Hasta Que ID_Usuario=ID_UsuarioBD Y ContraseñaBD=Contraseña
+	Repetir
+		Escribir 'Actividad que desea realizar: '
+		Escribir '1.-Alta de doctores 2.-Alta de pacientes  3.-Agendar cita  4.-Salir'
+		ID_Doct <- null
+		ID_Paciente <- null
+		ID_Cita <- null
+		Cont <- 0
+		Leer Actividad
+		Continuar <- null
+		Segun Actividad  Hacer
+			1:
+				Repetir
+					Escribir '----Alta de doctor----'
+					ID_Doc <- ID_Doc+1
+					Escribir 'Ingresa el nombre completo'
+					Leer Nombre_Doc
+					Escribir 'Ingresar especialidad'
+					Leer Especialidad_Doc
+					Escribir '----Se ha dado de alta al doctor----'
+					Repetir
+						Escribir '¿Desea seguir dando de alta?'
+						Escribir '1.- Continuar  2.-Volver al menu'
+						Leer Continuar
+					Hasta Que Continuar=1 O Continuar=2
+				Hasta Que Continuar=2
+			2:
+				Repetir
+					Escribir '----Alta de pacientes----'
+					ID_Paciente <- ID_Paciente+1
+					Escribir 'Ingresa nombre de paciente'
+					Leer Nombre_Paciente
+					Escribir '----Se ha dado de alta el paciente----'
+					Repetir
+						Escribir '¿Desea seguir dando de alta pacientes?'
+						Escribir '1.- Continuar   2.-Volver al menu'
+						Leer Continuar
+					Hasta Que Continuar=1 O Continuar=2
+				Hasta Que Continuar=2
+			3:
+				Nombre_Paciente <- Julio
+				Nombre_Doc <- Violeta
+				Repetir
+					Escribir '----Agendar cita----'
+					ID_Cita <- ID_Cita+1
+					Escribir 'Ingresar Fecha(dd/mm/aa): '
+					Leer Fecha
+					Escribir 'Ingresa la hora (hora:minutos): '
+					Leer Hora
+					Repetir
+						Escribir 'Escoge al paciente al paciente'
+						Leer Paciente_Cita
+					Hasta Que Paciente_Cita=ID_Paciente
+					Repetir
+						Escribir 'Escoge al doctor: '
+						Leer Doctor_cita
+					Hasta Que Doctor_cita=Nombre_Doc
+					Escribir 'Ingresa el Motivo de la consulta: '
+					Leer Motivo
+					Repetir
+						Escribir '¿Confirma la informacion?'
+						Escribir '1.-Cambiar datos 2.- Confirmar'
+						Leer Continuar
+					Hasta Que Confirmar=1 O Confirmar=2
+				Hasta Que Confirmar=2
+				Escribir '----Se ha agendado la cita----'
+			4:
+				Continuar = 3
+			De Otro Modo:
+				Escribir 'Opcion fuera del ramgo del menu'
+				Escribir 'Ingrese una opción disponible'
+				Continuar = 2
+		FinSegun
+	Hasta Que Continuar<>2 O Continuar =3
+	Escribir 'Salida exitosa'
+FinAlgoritmo
